@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Dragon Ball Universe</title>
+    <style>
+        body {
+            font-family: 'Saiyan Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+            background: url(https://github.com/Cood-Cook/First-Webpage/blob/920944f979af5b0a35a1f903974b037af79b51ca/Background.jpg) no-repeat center center fixed;
+            background-size: cover;
+            background-attachment: fixed;
+            animation: auraGlow 3s infinite alternate;
+        }
+        @keyframes auraGlow {
+            0% { box-shadow: 0 0 20px red; }
+            100% { box-shadow: 0 0 40px yellow; }
+        }
+        .parallax {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(https://github.com/Cood-Cook/First-Webpage/blob/920944f979af5b0a35a1f903974b037af79b51ca/Background.jpg) no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            transform: translateY(0);
+        }
+        .content {
+            padding: 50px 20px;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .section {
+            margin: 50px auto;
+            padding: 30px;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(255, 165, 0, 0.6);
+            transform: scale(1);
+            transition: transform 0.3s;
+        }
+        .section:hover {
+            transform: scale(1.05);
+        }
+        .buttons {
+            margin-top: 40px;
+        }
+        .buttons a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            background: orange;
+            border: 2px solid yellow;
+            box-shadow: 0 0 10px yellow, 0 0 20px orange;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .buttons a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px yellow, 0 0 30px orange;
+        }
+        @keyframes vanish {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        .power-up {
+            font-size: 20px;
+            color: gold;
+            animation: powerText 2s infinite alternate;
+        }
+        @keyframes powerText {
+            from { text-shadow: 0 0 10px red; }
+            to { text-shadow: 0 0 20px yellow; }
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax"></div>
+    <div class="content">
+        <h1>About Us</h1>
+        <p class="power-up">Welcome to the ultimate Dragon Ball Universe fan hub, where Saiyan pride never fades!</p>
+        
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>We bring you the most legendary Dragon Ball content, from character bios to hidden secrets and battle breakdowns.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Why Dragon Ball?</h2>
+            <p>From Goku’s first Kamehameha to Ultra Instinct, this universe is filled with epic moments. We exist to celebrate them!</p>
+        </div>
+        
+        <div class="buttons">
+            <a href="index.html" class="nav-button">Go to Index Page</a>
+            <a href="home.html" class="nav-button">Homepage</a>
+            <a href="fact.html" class="nav-button">Facts</a>
+            <a href="contact.html" class="nav-button">Contact Us</a>
+        </div>
+    </div>
+
+    <audio id="instantTransmission" src="instant_transmission.mp3"></audio>
+
+    <script>
+        document.querySelectorAll(".nav-button").forEach(button => {
+            button.addEventListener("click", function(event) {
+                let sound = document.getElementById("instantTransmission");
+                sound.play();
+                
+                if (Math.random() < 0.3) { // 30% chance of vanishing
+                    event.preventDefault();
+                    this.style.animation = "vanish 0.5s forwards";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
